@@ -1,0 +1,58 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-12 text-center my-4 ">
+      <button type="button" class="btn border-dark mx-4" [ngClass]="{'btn-success':status}" (click)="ChangeStatus()">
+        Now Showing
+      </button>
+      <button type="button" class="btn border-dark" [ngClass]="{'btn-success':!status}" (click)="ChangeStatus()">
+        Coming Soon
+      </button>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <ng-container *ngIf="status; else ComingSoon">
+      <div class="col-sm-3" *ngFor="let movie of movieList">
+        <app-movie-item [movie]="movie"></app-movie-item>
+      </div>
+    </ng-container>
+
+    <ng-template #ComingSoon>
+      <div class="col-sm-3" *ngFor="let movie of comingSoon">
+          <div class="card">
+              <img class="card-img-top" [src]="movie.HinhAnh" alt="" />
+              <div class="card-body">
+                <h4 class="card-title">{{ movie.TenPhim }}</h4>
+                
+              </div>
+            </div>
+      </div>
+    </ng-template>
+  </div>
+
+
+</div>
+
+
+<!-- <div class="owl-carousel owl-theme">
+  <div class="item" *ngFor="let movie of movieList">
+      <app-movie-item [movie]="movie"></app-movie-item>
+  </div>
+</div> -->
+
+
+<app-modal></app-modal>
+
+ <!-- <div class="row"><div class="col-sm-3" *ngFor="let movie of movieList">
+    <app-movie-item [movie]="movie"></app-movie-item>
+  </div>
+</div> -->
+
+<!-- <owl-carousel>
+  <div class="item" *ngFor="let movie of movieList;let i = index">
+    <app-movie-item [movie]="movie"></app-movie-item>
+  </div>
+</owl-carousel> -->

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  api: "http://svcy2.myclass.vn/api"
 };
