@@ -8,7 +8,6 @@ import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminUsersManagementComponent } from './admin-users-management/admin-users-management.component';
-import { AdminModalComponent } from './admin-modal/admin-modal.component';
 import { AdminMovieModalComponent } from './admin-movies-management/admin-movie-modal/admin-movie-modal.component';
 
 @NgModule({
@@ -20,7 +19,6 @@ import { AdminMovieModalComponent } from './admin-movies-management/admin-movie-
     AdminSidebarComponent,
     AdminDashboardComponent,
     AdminUsersManagementComponent,
-    AdminModalComponent,
     AdminMovieModalComponent
   ],
   imports: [
