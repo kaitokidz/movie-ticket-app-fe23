@@ -49,6 +49,18 @@ export class UserService {
     );
   }
 
+  Delete(urlTail: string): Observable<any> {
+    return this._httpClient.delete(urlHead + "/" + urlTail, httpOptions).pipe(
+      tap(
+        () => { },
+
+        catchError(error => {
+          return this.handleError(error);
+        })
+      )
+    );
+  }
+
   handleError(error: any) {
     return error;
   }

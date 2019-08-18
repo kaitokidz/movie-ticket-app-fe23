@@ -16,14 +16,27 @@ export class AdminUsersManagementComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getListUser();
+  }
 
-    const url = "QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01";
+  getListUser() {
+    const url = "QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP10";
 
     this._userService.GetUsers(url).subscribe((data: any) => {
       this.listUsers = data;
-      console.log("Inside :" + this.listUsers);
     });
-    console.log("Outside :" + this.listUsers);
+  }
+
+
+  deleteUser(_userID) {
+
+    const url = `QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${_userID}`;
+
+    this._userService.Delete(url).subscribe((data: any) => {
+      alert(data);
+      window.location.reload();
+    });
+
   }
 
 }

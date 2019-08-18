@@ -11,6 +11,7 @@ import { AdminUsersManagementComponent } from './admin-users-management/admin-us
 import { AdminMovieModalComponent } from './admin-movies-management/admin-movie-modal/admin-movie-modal.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AdminUserModalComponent } from './admin-users-management/admin-user-modal/admin-user-modal.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AdminDashboardComponent,
     AdminUsersManagementComponent,
     AdminMovieModalComponent,
+    AdminUserModalComponent,
 
   ],
   imports: [

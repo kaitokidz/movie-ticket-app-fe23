@@ -39,10 +39,12 @@
               <button type="button" class="btn btn-success" data-toggle="modal" data-target="#detail">Xem Thêm</button>
             </td>
             <td>
-              <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit</button>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#movieModal"
+                (click)="updateMovie( movie_data.MaPhim)"><i class="fa fa-edit"></i>
+                Sửa</button>
               &nbsp;
               <button class="btn btn-danger" (click)="DeleteMovie(movie_data.MaPhim)"><i class="fa fa-trash"></i>
-                Remove</button>
+                Xóa</button>
             </td>
           </tr>
           <!-- Modal -->

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MovieService } from 'src/app/_core/services/movie.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { MovieService } from 'src/app/_core/services/movie.service';
 })
 export class AdminMovieModalComponent implements OnInit {
 
+  @Input() movieDetail
   constructor(
     private _movieService: MovieService
   ) { }

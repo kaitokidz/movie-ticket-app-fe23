@@ -11,6 +11,7 @@ import { MovieService } from "src/app/_core/services/movie.service";
 export class AdminMoviesManagementComponent implements OnInit {
 
   listMovies: any;
+  movieDetail: any = [];
 
   constructor(
     private _movieService: MovieService,
@@ -36,4 +37,13 @@ export class AdminMoviesManagementComponent implements OnInit {
       alert(data);
     });
   }
+
+  updateMovie(_movieID) {
+
+    const url = `QuanLyPhim/LayChiTietPhim?MaPhim=${_movieID}`;
+    this._movieService.GetMovie(url).subscribe((data: any) => {
+      this.movieDetail = data;
+    });
+  }
+
 }
