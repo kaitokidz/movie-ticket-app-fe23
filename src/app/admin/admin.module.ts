@@ -9,6 +9,9 @@ import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminUsersManagementComponent } from './admin-users-management/admin-users-management.component';
 import { AdminMovieModalComponent } from './admin-movies-management/admin-movie-modal/admin-movie-modal.component';
+import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -19,10 +22,11 @@ import { AdminMovieModalComponent } from './admin-movies-management/admin-movie-
     AdminSidebarComponent,
     AdminDashboardComponent,
     AdminUsersManagementComponent,
-    AdminMovieModalComponent
+    AdminMovieModalComponent,
+
   ],
   imports: [
-    CommonModule, AdminRoutingModule
+    CommonModule, AdminRoutingModule, FormsModule, NgxPaginationModule
   ],
   exports: [
     AdminComponent,

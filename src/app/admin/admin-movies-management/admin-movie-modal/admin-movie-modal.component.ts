@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from 'src/app/_core/services/movie.service';
 
 @Component({
   selector: 'app-admin-movie-modal',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminMovieModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _movieService: MovieService
+  ) { }
 
   ngOnInit() {
+  }
+
+  addMovie(_movie_data) {
+    const url = 'QuanLyPhim/ThemPhimMoi';
+    this._movieService.Post(url, _movie_data).subscribe((data: any) => {
+      if (data.MaPhim) {
+        alert("Thêm Phim Mới Thành Công");
+      } else {
+        alert("Thêm Phim Mới Thất Bại");
+      }
+    })
   }
 
 }

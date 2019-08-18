@@ -11,23 +11,81 @@
       </div>
     </div>
     <div class="card-body">
+      <!-- Pagination -->
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+      <!-- End Pagination -->
       <table class="table">
-        <thead>
+        <tr>
+          <th>Hình Ảnh</th>
+          <th>Tên Phim</th>
+          <th>Mã Phim</th>
+          <th>Mã Nhóm</th>
+          <th>Thông Tin Chi Tiết</th>
+          <th>Action</th>
+        </tr>
+        <ng-container *ngFor="let movie_data of listMovies | paginate: { itemsPerPage: 10, currentPage: p }"
+          class="movie_data">
           <tr>
-            <th>Mã Phim</th>
-            <th>Tên Phim</th>
-            <th>Trailer</th>
-            <th>Hình Ảnh</th>
-            <th>Mô Tả</th>
-            <th>Mã Nhóm</th>
-            <th>Ngày Khởi Chiếu</th>
-            <th>Action</th>
+            <td><img [src]=movie_data.HinhAnh alt="{{ movie_data.TenPhim}}" class="img-fluid img-thumbnail" width="100">
+            </td>
+            <td width="30%">{{ movie_data.TenPhim}}</td>
+            <td>{{ movie_data.MaPhim}}</td>
+            <td>{{ movie_data.MaNhom}}</td>
+            <td>
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#detail">Xem Thêm</button>
+            </td>
+            <td>
+              <button class="btn btn-primary"><i class="fa fa-edit"></i> Edit</button>
+              &nbsp;
+              <button class="btn btn-danger" (click)="DeleteMovie(movie_data.MaPhim)"><i class="fa fa-trash"></i>
+                Remove</button>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          <li ngFor=" let itemFilm of movieList"></li>
-        </tbody>
+          <!-- Modal -->
+          <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="detailLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="detailLabel">Thông Tin Chi Tiết</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <h5>Trailer</h5>
+                  <p>{{ movie_data.Trailer}}</p>
+                  <small class="text-danger"><i>( Do load quá nhiều nên không để vào iframe)</i></small>
+                  <hr>
+                  <h5>Mô Tả:</h5>
+                  <p>
+                    {{ movie_data.MoTa}}
+                  </p>
+                  <hr>
+                  <h5>Ngày Khởi Chiếu: </h5>
+                  {{ movie_data.NgayKhoiChieu | date : "dd-MM-y"}}
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </ng-container>
+        <br>
       </table>
+      <!-- Pagination -->
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+      <!-- End Pagination -->
     </div>
   </div>
 </div>

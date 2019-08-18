@@ -23,7 +23,7 @@ export class MovieService {
   GetMovie(urlTail: string): Observable<any> {
     return this.http.get(urlHead + "/" + urlTail).pipe(
       tap(
-        () => {},
+        () => { },
 
         catchError(error => {
           return this.handleError(error);
@@ -35,7 +35,19 @@ export class MovieService {
   Post(urlTail: string, data?: Object): Observable<any> {
     return this.http.post(urlHead + "/" + urlTail, data, httpOptions).pipe(
       tap(
-        () => {},
+        () => { },
+
+        catchError(error => {
+          return this.handleError(error);
+        })
+      )
+    );
+  }
+
+  Delete(urlTail: string): Observable<any> {
+    return this.http.delete(urlHead + "/" + urlTail, httpOptions).pipe(
+      tap(
+        () => { },
 
         catchError(error => {
           return this.handleError(error);

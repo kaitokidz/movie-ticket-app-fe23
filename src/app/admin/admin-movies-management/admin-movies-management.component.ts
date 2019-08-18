@@ -1,9 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { MovieService } from "src/app/_core/services/movie.service";
-import { TransferService } from "src/app/_core/services/transfer.service";
-import { Subscription, Observable, from } from "rxjs";
-import { HttpHeaders, HttpClient } from "@angular/common/http";
-import { MovieEntities } from './MovieModels'
 
 
 @Component({
@@ -14,9 +10,7 @@ import { MovieEntities } from './MovieModels'
 
 export class AdminMoviesManagementComponent implements OnInit {
 
-  status: boolean = true;
-  movieList: any;
-
+  listMovies: any;
 
   constructor(
     private _movieService: MovieService,
@@ -24,17 +18,22 @@ export class AdminMoviesManagementComponent implements OnInit {
 
   ngOnInit() {
     this.GetMovieList();
-    console.log(this.movieList);
   }
 
   GetMovieList() {
-
-    const url = "QuanLyPhim/LayDanhSachPhim?MaNhom=GP09";
+    const url = "QuanLyPhim/LayDanhSachPhim?MaNhom=GP10";
 
     this._movieService.GetMovie(url).subscribe((data: any) => {
-      this.movieList = data;
-      console.log(this.movieList);
+      this.listMovies = data;
     });
+  }
 
+  DeleteMovie(_movieID) {
+
+    const url = `QuanLyPhim/XoaPhim?MaPhim=${_movieID}`;
+
+    this._movieService.Delete(url).subscribe((data: any) => {
+      alert(data);
+    });
   }
 }
