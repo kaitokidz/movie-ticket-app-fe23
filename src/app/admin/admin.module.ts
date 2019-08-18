@@ -1,12 +1,39 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdminManagementComponent } from './admin-management/admin-management.component';
+import { AdminComponent } from './admin.component';
+import { AdminRoutingModule } from './admin-routing.module';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import { AdminMoviesManagementComponent } from './admin-movies-management/admin-movies-management.component';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminUsersManagementComponent } from './admin-users-management/admin-users-management.component';
+import { AdminModalComponent } from './admin-modal/admin-modal.component';
+import { AdminMovieModalComponent } from './admin-movies-management/admin-movie-modal/admin-movie-modal.component';
 
 @NgModule({
-  declarations: [AdminManagementComponent],
-  imports: [
-    CommonModule
+  declarations: [
+    AdminComponent,
+    AdminLayoutComponent,
+    AdminMoviesManagementComponent,
+    AdminHeaderComponent,
+    AdminSidebarComponent,
+    AdminDashboardComponent,
+    AdminUsersManagementComponent,
+    AdminModalComponent,
+    AdminMovieModalComponent
   ],
-  exports: [AdminManagementComponent]
+  imports: [
+    CommonModule, AdminRoutingModule
+  ],
+  exports: [
+    AdminComponent,
+    AdminLayoutComponent,
+    AdminMoviesManagementComponent,
+    AdminHeaderComponent,
+    AdminSidebarComponent,
+    AdminDashboardComponent,
+    AdminUsersManagementComponent
+  ],
 })
 export class AdminModule { }

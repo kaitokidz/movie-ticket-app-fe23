@@ -6,7 +6,7 @@ import { Subscription } from "rxjs";
 // import $ from "jquery";
 // declare var $: any;
 
-import {OwlCarousel} from 'ngx-owl-carousel';
+import { OwlCarousel } from 'ngx-owl-carousel';
 
 
 
@@ -26,7 +26,7 @@ export class HomeShowtimesComponent implements OnInit, OnDestroy, AfterViewInit,
   constructor(
     private movieService: MovieService,
     private transferService: TransferService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.GetMovieList();
@@ -38,53 +38,53 @@ export class HomeShowtimesComponent implements OnInit, OnDestroy, AfterViewInit,
   }
 
   GetMovieList() {
-  
+
     const url = "QuanLyPhim/LayDanhSachPhim?MaNhom=GP09";
     this.subcription = this.movieService
       .GetMovie(url)
       .subscribe((data: any) => {
         this.movieList = data;
-        console.log(data);
-        
+        console.log("From home: " + data);
+
         // this.transferService.StoreMovieList(data);
       });
 
-      const url2 = "QuanLyPhim/LayDanhSachPhim?MaNhom=GP07";
-      this.subcription2 = this.movieService.GetMovie(url2).subscribe((data: any) => {
-       this.comingSoon = data;
-      
-       console.log(data);
-       //  this.transferService.StoreMovieList(data);
-     })
+    const url2 = "QuanLyPhim/LayDanhSachPhim?MaNhom=GP07";
+    this.subcription2 = this.movieService.GetMovie(url2).subscribe((data: any) => {
+      this.comingSoon = data;
+
+      console.log("From home: " + data);
+      //  this.transferService.StoreMovieList(data);
+    })
   }
 
   ngOnDestroy() {
     this.subcription.unsubscribe();
     this.subcription2.unsubscribe();
 
-   
+
   }
 
-  ngAfterViewInit(){
-  //   $('.owl-carousel').owlCarousel({
-  //     loop:true,
-  //     margin:10,
-  //     nav:true,
-  //     responsive:{
-  //         0:{
-  //             items:1
-  //         },
-  //         600:{
-  //             items:3
-  //         },
-  //         1000:{
-  //             items:5
-  //         }
-  //     }
-  // })
-    
+  ngAfterViewInit() {
+    //   $('.owl-carousel').owlCarousel({
+    //     loop:true,
+    //     margin:10,
+    //     nav:true,
+    //     responsive:{
+    //         0:{
+    //             items:1
+    //         },
+    //         600:{
+    //             items:3
+    //         },
+    //         1000:{
+    //             items:5
+    //         }
+    //     }
+    // })
+
   }
 
-  ngAfterViewChecked(){}
+  ngAfterViewChecked() { }
 
 }

@@ -19,7 +19,7 @@ import { SafePipe } from "../_core/pipes/safe.pipe";
 import { SeatItemComponent } from "./home-management/home-booking-page/seat-item/seat-item.component";
 import { SignUpComponent } from "./home-management/sign-up/sign-up.component";
 import { SignInComponent } from "./home-management/sign-in/sign-in.component";
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // import {OwlCarousel} from 'ngx-owl-carousel';
 
@@ -67,4 +67,4 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     SignInComponent
   ]
 })
-export class HomeModule {}
+export class HomeModule { }
