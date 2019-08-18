@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  loginData: any = [];
+
+
   constructor() { }
 
   ngOnInit() {
+    this.checkLogin();
   }
+
+  checkLogin() {
+
+    let userLogin = JSON.parse(localStorage.getItem("userLogin"));
+    if (userLogin) {
+      this.loginData = userLogin;
+    }
+
+  }
+
+
 
 }

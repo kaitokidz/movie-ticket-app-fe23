@@ -8,12 +8,16 @@ import { MovieService } from 'src/app/_core/services/movie.service';
 })
 export class AdminMovieModalComponent implements OnInit {
 
-  @Input() movieDetail
+  @Input() movieDetail;
+
+
+
   constructor(
     private _movieService: MovieService
   ) { }
 
   ngOnInit() {
+
   }
 
   addMovie(_movie_data) {

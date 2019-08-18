@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 export class SignInComponent implements OnInit, OnDestroy {
 
   signInForm: FormGroup;
-  bannedAccount=['unknown','user1', 'unknownuser'];
+  bannedAccount = ['unknown', 'user1', 'unknownuser'];
   subcription = new Subscription();
 
   constructor(private movieService: MovieService) { }
@@ -23,28 +23,31 @@ export class SignInComponent implements OnInit, OnDestroy {
     })
   }
 
-  BannedAccount(control:FormControl){
-    for(let account of this.bannedAccount){
-      if(account === control.value){
-        return {'banned':true};
+  BannedAccount(control: FormControl) {
+    for (let account of this.bannedAccount) {
+      if (account === control.value) {
+        return { 'banned': true };
       }
-      else{
+      else {
         return null;
       }
     }
   }
 
-  SignIn(value){
+  SignIn(value) {
     const url = `QuanLyNguoiDung/DangNhap?TaiKhoan=${value.TaiKhoan}&MatKhau=${value.MatKhau}`;
     this.subcription = this.movieService.Post(url).subscribe(
-      (data:any) => {
+      (data: any) => {
         if (data === "Tài khoản hoặc mật khẩu không đúng !") {
           alert("Invalid account or password !");
         } else {
           alert("Sign in successfully !");
           localStorage.setItem("userLogin", JSON.stringify(data));
         }
-      })
+      });
+    document.location.href = "/";
+
+
   }
 
   ngOnDestroy() {

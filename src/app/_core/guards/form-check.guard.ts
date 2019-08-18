@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
-import { Observable } from 'rxjs';
 import { SignUpComponent } from './../../home/sign-up/sign-up.component';
 
 

@@ -1,11 +1,17 @@
 <!-- Modal -->
+
 <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="movieModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <form #movieForm="ngForm" (ngSubmit)="addMovie(movieForm.value)">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="movieModalLabel">Thêm Phim Mới</h5>
+          <h5 class="modal-title" id="movieModalLabel" *ngIf="movieDetail; else addNew">
+            Sửa Phim
+            <ng-template #addNew>
+              Thêm Phim Mới
+            </ng-template>
+          </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -16,12 +22,13 @@
 
               <div class="form-group">
                 <label>Tên Phim</label>
-                <input type="text" class="form-control" placeholder="Tên Phim" tabindex="1" name="TenPhim" ngModel>
+                <input type="text" class="form-control" placeholder="Tên Phim" tabindex="1" name="TenPhim" ngModel
+                  value="{{movieDetail.TenPhim}}">
               </div>
               <div class="form-group">
                 <label>Ngày Khởi Chiếu</label>
                 <input type="text" class="form-control" placeholder="Ngày Khởi Chiếu" tabindex="1" name="NgayKhoiChieu"
-                  ngModel>
+                  value="{{movieDetail.TenPhim}}" ngModel>
               </div>
             </div>
 
@@ -29,13 +36,15 @@
 
               <div class="form-group">
                 <label>Trailer Phim</label>
-                <input type="text" class="form-control" placeholder="Trailer Phim" tabindex="1" name="Trailer" ngModel>
+                <input type="text" class="form-control" placeholder="Trailer Phim" tabindex="1" name="Trailer"
+                  value="{{movieDetail.TenPhim}}" ngModel>
               </div>
 
 
               <div class="form-group">
                 <label>Hình Ảnh</label>
-                <input type="text" class="form-control" placeholder="Hình Ảnh" tabindex="1" name="HinhAnh" ngModel>
+                <input type="text" class="form-control" placeholder="Hình Ảnh" tabindex="1" name="HinhAnh"
+                  value="{{movieDetail.TenPhim}}" ngModel>
               </div>
             </div>
 
@@ -43,7 +52,7 @@
               <div class="form-group">
                 <label>Mô Tả</label>
                 <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Mô Tả" tabindex="1"
-                  name="MoTa" ngModel></textarea>
+                  name="MoTa" value="{{movieDetail.TenPhim}}" ngModel></textarea>
               </div>
             </div>
 
