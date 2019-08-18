@@ -1,0 +1,12 @@
+<div class="card">
+  <img class="card-img-top" [src]="movie.HinhAnh" alt="" />
+  <div class="card-body">
+    <h4 class="card-title">{{ movie.TenPhim }}</h4>
+    <button class="btn btn-primary" (click)="SeeMovieDetail()"
+      style="background: #2980b9; border-color: #0984e3">Details</button>&nbsp;
+    <button class="btn btn-success" data-toggle="modal" data-target="#modelId" (click)="QuickView()"
+      style="background: #00b894">
+      Quick View
+    </button>
+  </div>
+</div>

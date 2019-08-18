@@ -1,0 +1,45 @@
+<div class="container card">
+  <div class="row">
+    <div class="col-sm-5 mx-auto">
+      <form [formGroup]="signInForm" (ngSubmit)="SignIn(signInForm.value)">
+        <h4 class="display-4">SIGN IN</h4>
+        <div class="form-group">
+          <label for="">Account:</label>
+          <input type="text" class="form-control" formControlName="TaiKhoan" />
+          <div *ngIf="
+              signInForm.get('TaiKhoan').invalid &&
+              signInForm.get('TaiKhoan').touched
+            ">
+            <div class="alert alert-danger" *ngIf="signInForm.get('TaiKhoan').errors['required']">
+              Please enter your account !
+            </div>
+            <div class="alert alert-danger" *ngIf="signInForm.get('TaiKhoan').errors['pattern']">
+              Please enter valid account !
+            </div>
+            <div class="alert alert-danger" *ngIf="signInForm.get('TaiKhoan').errors['banned']">
+              Your account is banned !
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="">Password:</label>
+          <input type="text" class="form-control" formControlName="MatKhau" />
+          <div *ngIf="
+              signInForm.get('MatKhau').invalid &&
+              signInForm.get('MatKhau').touched
+            ">
+            <div class="alert alert-danger" *ngIf="signInForm.get('MatKhau').errors['required']">
+              Please enter your password !
+            </div>
+            <div class="alert alert-danger" *ngIf="signInForm.get('MatKhau').errors['minlength']">
+              Please enter at least 5 characters !
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
