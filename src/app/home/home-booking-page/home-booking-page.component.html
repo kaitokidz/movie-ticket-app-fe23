@@ -1,0 +1,20 @@
+<div class="container card mt-5 p-5 mb-5">
+  <div class="row">
+    <div class="col-sm-6">
+      <app-seat-item (eventEmitter)="ShowBookedSeats($event, seat)" [seat]="seat" *ngFor="let seat of seatList">
+      </app-seat-item>
+    </div>
+    <div class="col-sm-6">
+      <p>Booked Seats: {{ bookedSeats }}</p>
+      <p>Remains: {{ remains }}</p>
+      <hr>
+      <p *ngFor="let seat of bookingSeatList">
+        <span>Seat: {{ seat.TenGhe }} - </span>
+        <span> Price: {{ seat.GiaVe }}</span>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <button class="btn btn-info" (click)="BookSeat()">Book your seat!</button>
+  </div>
+</div>

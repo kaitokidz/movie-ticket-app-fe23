@@ -1,0 +1,63 @@
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-6">Danh Sách Người Dùng</div>
+        <div class="col-6 text-right">
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#userModal">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <!-- Pagination -->
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+      <!-- End Pagination -->
+      <table class="table">
+        <tr>
+          <th>Tài Khoản</th>
+          <th>Họ Tên</th>
+          <th>Password</th>
+          <th>Email</th>
+          <th>Số Điện Thoại</th>
+          <th>Mã Loại Người Dùng</th>
+          <th>Mã Nhóm</th>
+        </tr>
+        <ng-container *ngFor=" let user of listUsers | paginate: { itemsPerPage: 10, currentPage: p }">
+          <tr>
+            <td width="10%">{{user.TaiKhoan}}</td>
+            <td width="10%">{{user.HoTen}}</td>
+            <td>{{user.MatKhau}}</td>
+            <td width="10%">{{user.Email}}</td>
+            <td>{{user.SoDT}}</td>
+            <td>{{user.MaLoaiNguoiDung}}</td>
+            <td>{{user.MaNhom}}</td>
+            <td>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#userModal"
+                (click)="updateUser(user.TaiKhoan, user.MatKhau)"><i class="fa fa-edit"></i>
+                Sửa</button> &nbsp;
+              <button class="btn btn-danger" (click)="deleteUser(user.TaiKhoan)">
+                <i class="fa fa-trash"></i>
+                Xóa
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+      </table>
+      <!-- Pagination -->
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+      <!-- End Pagination -->
+    </div>
+  </div>
+</div>
+
+<app-admin-user-modal [userDetail]=userDetail></app-admin-user-modal>
