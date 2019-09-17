@@ -39,7 +39,7 @@
             <td>{{user.MaNhom}}</td>
             <td>
               <button class="btn btn-primary" data-toggle="modal" data-target="#userModal"
-                (click)="updateUser(user.TaiKhoan)"><i class="fa fa-edit"></i>
+                (click)="updateUser(user.TaiKhoan, user.MatKhau)"><i class="fa fa-edit"></i>
                 Sửa</button> &nbsp;
               <button class="btn btn-danger" (click)="deleteUser(user.TaiKhoan)">
                 <i class="fa fa-trash"></i>
@@ -60,4 +60,4 @@
   </div>
 </div>
 
-<app-admin-user-modal></app-admin-user-modal>
+<app-admin-user-modal [userDetail]=userDetail></app-admin-user-modal>

@@ -40,10 +40,17 @@ export class AdminUsersManagementComponent implements OnInit {
 
   }
 
-  updateUser(_username) {
-    const url = `QuanLyNguoiDung/CapNhatThongTin=${_username}`;
+  updateUser(_username, _password) {
+    /**
+     * Lấy thông tin người dùng trước khi sửa
+     */
+
+    const url = `QuanLyNguoiDung/DangNhap?TaiKhoan=${_username}&MatKhau=${_username}`;
+
     this._userService.Post(url).subscribe((data: any) => {
+
       this.userDetail = data;
+
     });
   }
 
