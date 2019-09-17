@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminHeaderComponent implements OnInit {
 
+  public isLogin = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+
+  checkLogin() {
+
+    if (localStorage.getItem("userLogin")) {
+
+      this.isLogin = true;
+
+    }
+  }
+
+  signOut() {
+    localStorage.removeItem('userLogin');
   }
 
 }

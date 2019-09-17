@@ -11,6 +11,8 @@ import { HomeCinemasComponent } from './home-page/home-cinemas/home-cinemas.comp
 import { HomeNewsComponent } from './home-page/home-news/home-news.component';
 import { HomeApplicationComponent } from './home-page/home-application/home-application.component';
 import { HomeComponent } from './home.component';
+import { LoginActivate } from '../_core/guards/login-activate.guard';
+
 
 const routes: Routes = [
   { path: "homepage", component: HomePageComponent },
@@ -21,8 +23,8 @@ const routes: Routes = [
       { path: "homepage", component: HomePageComponent },
       { path: "booking-page/:id", component: HomeBookingPageComponent, canActivate: [AuthenticationGuard] },
       { path: "movie-page/:id", component: HomeMoviePageComponent },
-      { path: "sign-up", component: SignUpComponent },
-      { path: "sign-in", component: SignInComponent },
+      { path: "sign-up", component: SignUpComponent, canActivate: [LoginActivate] },
+      { path: "sign-in", component: SignInComponent, canActivate: [LoginActivate] },
       { path: "showtimes", component: HomeShowtimesComponent },
       { path: "cinemas", component: HomeCinemasComponent },
       { path: "news", component: HomeNewsComponent },

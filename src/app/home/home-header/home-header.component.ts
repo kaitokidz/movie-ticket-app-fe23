@@ -7,9 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeHeaderComponent implements OnInit {
 
+  public isLogin = false;
+
   constructor() { }
 
   ngOnInit() {
+    this.checkLogin();
+  }
+
+
+
+  checkLogin() {
+
+    if (localStorage.getItem("userLogin")) {
+
+      this.isLogin = true;
+
+    }
+  }
+
+  signOut() {
+    localStorage.removeItem('userLogin');
   }
 
 }

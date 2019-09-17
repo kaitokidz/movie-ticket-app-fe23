@@ -33,7 +33,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#cinemas">Cinemas</a>
+          <a class="nav-link" href="#news">Cinemas</a>
         </li>
 
         <li class="nav-item">
@@ -41,20 +41,27 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#application">Application</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/home/sign-in">Sign in</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/home/sign-up">Sign up</a>
+          <a class="nav-link" href="#news">Application</a>
         </li>
 
         <li class="nav-item">
           <a class="nav-link" href="#contact">Contact</a>
         </li>
+
+        <ng-container *ngIf="isLogin; else signUP">
+          <li class="nav-item">
+            <a class="nav-link" href="#" (click)="signOut()">Sign out</a>
+          </li>
+        </ng-container>
+        <ng-template #signUP>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home/sign-in">Sign in</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home/sign-up">Sign up</a>
+          </li>
+        </ng-template>
       </ul>
     </div>
   </div>

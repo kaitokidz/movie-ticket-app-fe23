@@ -3,6 +3,8 @@
     <div class="col-sm-5 mx-auto">
       <form [formGroup]="signInForm" (ngSubmit)="SignIn(signInForm.value)">
         <h4 class="display-4">SIGN IN</h4>
+        <small>Default: username: root123, password: root123</small>
+        <br>
         <div class="form-group">
           <label for="">Account:</label>
           <input type="text" class="form-control" formControlName="TaiKhoan" />
@@ -10,13 +12,13 @@
               signInForm.get('TaiKhoan').invalid &&
               signInForm.get('TaiKhoan').touched
             ">
-            <div class="alert alert-danger" *ngIf="signInForm.get('TaiKhoan').errors['required']">
+            <div class="text text-danger" *ngIf="signInForm.get('TaiKhoan').errors['required']">
               Please enter your account !
             </div>
-            <div class="alert alert-danger" *ngIf="signInForm.get('TaiKhoan').errors['pattern']">
+            <div class="text text-danger" *ngIf="signInForm.get('TaiKhoan').errors['pattern']">
               Please enter valid account !
             </div>
-            <div class="alert alert-danger" *ngIf="signInForm.get('TaiKhoan').errors['banned']">
+            <div class="text text-danger" *ngIf="signInForm.get('TaiKhoan').errors['banned']">
               Your account is banned !
             </div>
           </div>
@@ -28,13 +30,16 @@
               signInForm.get('MatKhau').invalid &&
               signInForm.get('MatKhau').touched
             ">
-            <div class="alert alert-danger" *ngIf="signInForm.get('MatKhau').errors['required']">
+            <div class="text text-danger" *ngIf="signInForm.get('MatKhau').errors['required']">
               Please enter your password !
             </div>
-            <div class="alert alert-danger" *ngIf="signInForm.get('MatKhau').errors['minlength']">
+            <div class="text text-danger" *ngIf="signInForm.get('MatKhau').errors['minlength']">
               Please enter at least 5 characters !
             </div>
           </div>
+        </div>
+        <div *ngIf="inValidLogin">
+          <div class="alert alert-danger">Username/password không hợp lệ, vui lòng thử lại</div>
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-success">Submit</button>

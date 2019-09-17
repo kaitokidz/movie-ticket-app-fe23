@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminUsersManagementComponent implements OnInit {
 
   public listUsers = [];
+  public userDetail = [];
   constructor(
     private _userService: UserService
   ) { }
@@ -37,6 +38,13 @@ export class AdminUsersManagementComponent implements OnInit {
       window.location.reload();
     });
 
+  }
+
+  updateUser(_username) {
+    const url = `QuanLyNguoiDung/CapNhatThongTin=${_username}`;
+    this._userService.Post(url).subscribe((data: any) => {
+      this.userDetail = data;
+    });
   }
 
 }

@@ -13,6 +13,7 @@ export class SignInComponent implements OnInit, OnDestroy {
   signInForm: FormGroup;
   bannedAccount = ['unknown', 'user1', 'unknownuser'];
   subcription = new Subscription();
+  public inValidLogin = false;
 
   constructor(private movieService: MovieService) { }
 
@@ -39,13 +40,13 @@ export class SignInComponent implements OnInit, OnDestroy {
     this.subcription = this.movieService.Post(url).subscribe(
       (data: any) => {
         if (data === "Tài khoản hoặc mật khẩu không đúng !") {
-          alert("Invalid account or password !");
+          this.inValidLogin = true;
         } else {
-          alert("Sign in successfully !");
           localStorage.setItem("userLogin", JSON.stringify(data));
+          document.location.href = "/";
         }
       });
-    document.location.href = "/";
+
 
 
   }

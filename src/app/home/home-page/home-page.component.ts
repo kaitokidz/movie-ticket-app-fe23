@@ -7,9 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
+  public currentComponent: string = 'news';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  switchComponent(component: string) {
+
+    console.log(component);
+
+
+    if (component == 'news')
+
+      this.currentComponent = 'news';
+
+    else if (component == 'application')
+
+      this.currentComponent = 'application';
+
+    else this.currentComponent = 'cinemas';
   }
 
 }

@@ -1,30 +1,30 @@
 <app-home-carousel></app-home-carousel>
 
-<section class="web-body">
+<section class="web-body mb-5">
 
   <section id="showtimes">
     <app-home-showtimes></app-home-showtimes>
   </section>
 
-  <section id="other" class="container">
-    <div class="row text-white">
-      <div class="col-12">
 
-      </div>
+  <section id="news" class="container mt-5">
+    <div class="row text-white text-center">
+      <h1>Tin Tức</h1>
     </div>
     <div class="row">
       <div class="col-12">
-        <section id="cinemas">
-          <app-home-cinemas></app-home-cinemas>
-        </section>
+        <div [ngSwitch]="currentComponent">
+          <div *ngSwitchCase="cinemas" id="cinemas">
+            <app-home-cinemas></app-home-cinemas>
+          </div>
 
-        <section id="news">
-          <app-home-news></app-home-news>
-        </section>
-
-        <section id="application">
-          <app-home-application></app-home-application>
-        </section>
+          <div *ngSwitchCase="application" id="application">
+            <app-home-application></app-home-application>
+          </div>
+          <div *ngSwitchDefault>
+            <app-home-news></app-home-news>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -38,7 +38,8 @@
             <td>{{user.MaLoaiNguoiDung}}</td>
             <td>{{user.MaNhom}}</td>
             <td>
-              <button class="btn btn-primary"><i class="fa fa-edit"></i>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#userModal"
+                (click)="updateUser(user.TaiKhoan)"><i class="fa fa-edit"></i>
                 Sửa</button> &nbsp;
               <button class="btn btn-danger" (click)="deleteUser(user.TaiKhoan)">
                 <i class="fa fa-trash"></i>
